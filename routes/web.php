@@ -19,4 +19,4 @@ use Illuminate\Support\Facades\Response;
 // });
 
 Route::get('dropdownlist', 'DataController@getBrands');
-Route::get('dropdownlist/getstates/{id}', 'DataController@getModels');
+Route::get('dropdownlist/brands/{id}', 'DataController@getModels');
