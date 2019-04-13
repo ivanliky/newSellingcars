@@ -18,7 +18,7 @@
   </head>
   <body>
 
-    <h1>Cars</h1>
+    <h1>Search</h1>
     <div class="container">
             <div class="form-group">
                 <label for="brand">Select Brand:</label>
@@ -35,40 +35,56 @@
                 <option>--Model--</option>
                 </select>
             </div>
+            <div class="form-group">
+                    <label for="from">Select Year:</label>
+                    <select name="from" class="form-control" style="width:250px">
+                        <option value="">--- From ---</option>
+                        @for ($i = 2020; $i > 1929; $i--)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                        @endfor
+                    </select>
+            </div>
+            <div class="form-group">
+
+                    <select name="to" class="form-control" style="width:250px">
+                        <option value="to">--- To ---</option>
+                        @for ($i = 2020; $i > 1929; $i--)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                        @endfor
+                    </select>
+            </div>
+
+            <div class="form-group">
+                    <label for="type">Type:</label>
+                    <select name="type" class="form-control" style="width:250px">
+                        <option value="">--- Select Type ---</option>
+                        @foreach ($types as $type)
+                        <option value="{{ $type->id }}"> {{ $type->name }}</option>
+                        @endforeach
+
+             </select>
+            </div>
+            <div class="form-group">
+                    <label for="price">Price to:</label>
+
+                    <input type="number" placeholder="&euro;">
+            </div>
+
+
+            <div class="form-group">
+                    <label for="fuel">Fuel:</label>
+                    <select name="fuel" class="form-control" style="width:250px">
+                        <option value="">--- Fuel ---</option>
+
+                        <option value=""></option>
+
+
+             </select>
+            </div>
       </div>
   </body>
 </html>
 
-<script type="text/javascript">
-    jQuery(document).ready(function ()
-    {
-            jQuery('select[name="brand"]').on('change',function(){
-               var brandID = jQuery(this).val();
-               if(brandID)
-               {
-                  jQuery.ajax({
-                     url : 'dropdownlist/brands/' +brandID,
-                     type : "GET",
-                     dataType : "json",
-                     success:function(data)
-                     {
-                        console.log(data);
-                        jQuery('select[name="car"]').empty();
-                        jQuery.each(data, function(key,value){
-                           $('select[name="car"]').append('<option value="'+ key +'">'+ value +'</option>');
-                        });
-                     }
-                  });
-               }
-               else
-               {
-                  $('select[name="car"]').empty();
-               }
-            });
-    });
-    </script>
-
-
-
+@include('includes.dynamicDropdown')
 
 @endsection
