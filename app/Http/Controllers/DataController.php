@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Car;
+use App\Fuel;
 use App\Type;
+use App\Year;
+use App\Brand;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class DataController extends Controller
 {
@@ -12,14 +15,21 @@ class DataController extends Controller
     {
         $types = Type::all();
 
-        $brands = DB::table('brands')->pluck("name", "id");
+        $brands = Brand::pluck("name", "id");
 
-        return view('cars.index', compact('brands', 'types'));
+        $fuels = Fuel::all();
+
+        $years = Year::all();
+
+
+
+        return view('cars.index', compact('brands', 'types', 'fuels', 'years'));
     }
 
     public function getModels($id)
     {
-        $cars = DB::table("cars")->where("brand_id", $id)->pluck("name", "id");
+        $cars = Car::where("brand_id", $id)->pluck("name", "id");
+
         return json_encode($cars);
     }
 }

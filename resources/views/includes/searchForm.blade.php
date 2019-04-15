@@ -25,9 +25,10 @@
                 <label for="from">Year From:</label>
                 <select name="from" class="form-control" style="width:250px">
 
-                    @for ($i = 2020; $i > 1929; $i--)
-                    <option value="{{ $i }}">{{ $i }}</option>
-                    @endfor
+                    @foreach ($years as $year)
+                    <option value="{{ $year->id }}">{{ $year->year }}</option>
+                    @endforeach
+
                 </select>
         </div>
 
@@ -36,9 +37,9 @@
                 <label for="from">Year To:</label>
                 <select name="to" class="form-control" style="width:250px">
 
-                    @for ($i = 2020; $i > 1929; $i--)
-                    <option value="{{ $i }}">{{ $i }}</option>
-                    @endfor
+                    @foreach ($years as $year)
+                    <option value="{{ $year->id }}">{{ $year->year }}</option>
+                    @endforeach
                 </select>
         </div></div>
 
@@ -64,8 +65,10 @@
                 <label for="fuel">Fuel:</label>
                 <select name="fuel" class="form-control" style="width:250px">
                     <option value="">--- Fuel ---</option>
+                    @foreach ($fuels as $fuel)
+                    <option value="{{ $fuel->id }}">{{ $fuel->name }}</option>
+                    @endforeach
 
-                    <option value=""></option>
 
 
          </select>
