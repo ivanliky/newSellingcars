@@ -10,15 +10,15 @@
     <title>@yield('title','Selling cars')</title>
 </head>
 <body>
-
+<div class="container mt-5">
   @yield('content')
 
 
   <footer>
 
-    @yield('footer')
+  @yield('footer')
 
   </footer>
-
+</div>
 </body>
 </html>

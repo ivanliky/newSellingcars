@@ -1,7 +1,9 @@
-<div class="container">
-    <h1>Cars</h1>
 
- <div class="row">
+<div class="formWrapper pl-5 pt-5 mb-5" style="background-color: #eee">
+    <h1>Search</h1>
+
+<form action="" class="">
+ <div class="row m-0">
     <div class="form-group one column mr-5">
         <label for="brand">Select Brand:</label>
         <select name="brand" class="form-control"  style="width:250px" >
@@ -28,7 +30,7 @@
 
 </div>
 
-    <div class="row">
+    <div class="row m-0">
     <div class="form-group one column mr-5">
             <label for="from">Year From:</label>
             <select name="from" class="form-control" style="width:250px">
@@ -63,7 +65,7 @@
 </div>
  </div>
 
- <div class="row">
+ <div class="row m-0">
     <div class="form-group mb-5">
             <label for="type">Type:</label>
             <select name="type" class="form-control" style="width:250px">
@@ -74,5 +76,14 @@
      </select>
 
   </div>
+
+  <div class="form-group ml-5 mt-4">
+
+        <button  type="submit" value="search" class="btn btn-primary btn-lg">Search</button>
+
+  </div>
+
 </div>
+</form>
 </div>
+
