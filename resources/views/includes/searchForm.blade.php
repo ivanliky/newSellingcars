@@ -2,7 +2,7 @@
 <div class="formWrapper pl-5 pt-5 mb-5" style="background-color: #eee">
     <h1>Search</h1>
 
-<form action="" class="">
+<form action="/search" method="GET">
  <div class="row m-0">
     <div class="form-group one column mr-5">
         <label for="brand">Select Brand:</label>
@@ -25,7 +25,7 @@
     <div class="form-group one column">
          <p class="m-0"><label for="price">Price to:</label></p>
 
-         <input type="number" placeholder="&euro;">
+         <input type="number" name ='price' placeholder="&euro;">
     </div>
 
 </div>

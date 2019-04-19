@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Response;
 //     return view('welcome');
 // });
 
-Route::get('dropdownlist', 'DataController@index');
-
 Route::get('dropdownlist/brands/{id}', 'DataController@getModels');
+
+Route::get('/search', 'DataController@getSearch');
+
+Route::resource('cars', 'DataController');

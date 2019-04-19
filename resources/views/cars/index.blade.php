@@ -6,6 +6,19 @@
 
 @include('includes.dynamicDropdown')
 
+<h2 class="mb-4">Recomended</h2>
+<div class="row">
+
+@foreach ($sellCars as $sellCar)
+
 @include('includes.boxes')
 
+@endforeach
+
+</div>
+
 @endsection
+
+
+
+
