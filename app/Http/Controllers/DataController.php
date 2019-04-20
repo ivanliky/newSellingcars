@@ -10,6 +10,7 @@ use App\Brand;
 use App\Registration;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\SearchForm;
 
 class DataController extends Controller
 {
@@ -41,7 +42,7 @@ class DataController extends Controller
         return json_encode($cars);
     }
 
-    public function getSearch(Request $request)
+    public function getSearch(SearchForm $request)
     {
 
         //return $request->all();
@@ -51,7 +52,7 @@ class DataController extends Controller
 
         $model = Car::findOrFail($request->car);
 
-        //$from = Year::findOrFail($request->from);
+        $from = Year::findOrFail($request->from);
 
         $to = Year::findOrFail($request->to);
 
@@ -65,30 +66,80 @@ class DataController extends Controller
 
 
         $search = DB::select(
-            "select brands.name as brand , concat(owners.first_name ,' ', owners.last_name) as owner ,
 
-owners.mobile_phone as mobile ,
+            "select brands.name as brand ,
 
-registrations.car_photo as photo ,
+            concat(owners.first_name ,' ', owners.last_name) as owner ,
 
-colors.name as color , cars.name as model ,
+            owners.mobile_phone as mobile ,
 
-years.year as year , fuels.name as fuel ,
+            registrations.car_photo as photo ,
 
-types.name as type from brands join cars on brands.id = cars.brand_id join registrations ON cars.id = registrations.car_id join types on
+            registrations.price as price ,
 
-types.id = cars.type_id join fuels on fuels.id = registrations.fuel_id join years on years.id = registrations.year_id join colors on
+            registrations.kilometers as kilometers ,
 
-colors.id = registrations.color_id
+            registrations.registered_to as registration ,
 
-join owners on owners.id = registrations.owner_id
+            colors.name as color ,
 
-WHERE
+            cars.name as model ,
 
-brands.name =  ?  AND cars.name =  ? AND years.year = ? AND fuels.name   = ? AND types.name   = ?",
+            years.year as year ,
 
-            [$brand->name, $model->name, $to->year, $fuel->name, $type->name]
+            fuels.name as fuel ,
+
+            types.name as type
+
+            from brands
+
+            join
+
+            cars on brands.id = cars.brand_id
+
+            join
+
+            registrations ON cars.id = registrations.car_id
+
+            join
+
+            types on types.id = cars.type_id join fuels on fuels.id = registrations.fuel_id
+
+            join
+
+            years on years.id = registrations.year_id
+
+            join
+
+            colors on colors.id = registrations.color_id
+
+            join
+
+            owners on owners.id = registrations.owner_id
+
+            WHERE
+
+            brands.name =  ?
+
+            AND
+
+            cars.name =  ?
+
+            AND
+
+            (years.year  >= ? AND years.year <= ?)
+
+            AND
+
+            fuels.name   = ?
+
+            AND
+
+            types.name   = ?",
+
+            [$brand->name, $model->name, $from->year, $to->year, $fuel->name, $type->name]
         );
+
 
         return view('cars.searchResults', compact('search'));
     }

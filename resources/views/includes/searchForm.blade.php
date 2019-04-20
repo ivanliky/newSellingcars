@@ -1,8 +1,31 @@
 
 <div class="formWrapper pl-5 pt-5 mb-5" style="background-color: #eee">
     <h1>Search</h1>
+    @if (count($errors) > 0)
+
+ <div class="alert alert-danger" style="width: 300px;">
+
+      <ul>
+
+         @foreach ($errors->all() as $error)
+
+                <li>{{ $error }}</li>
+
+         @endforeach
+
+
+       </ul>
+
+
+   </div>
+
+  @endif
+
 
 <form action="/search" method="GET">
+
+    @csrf
+
  <div class="row m-0">
     <div class="form-group one column mr-5">
         <label for="brand">Select Brand:</label>

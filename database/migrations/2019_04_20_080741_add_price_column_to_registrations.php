@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RemoveRegistrationIdColumnAndAddCarPhotoColumn extends Migration
+class AddPriceColumnToRegistrations extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class RemoveRegistrationIdColumnAndAddCarPhotoColumn extends Migration
     public function up()
     {
         Schema::table('registrations', function (Blueprint $table) {
-            // $table->string('car_photo');
+            $table->decimal('price', 10, 2);
         });
     }
 
@@ -26,7 +26,8 @@ class RemoveRegistrationIdColumnAndAddCarPhotoColumn extends Migration
     public function down()
     {
         Schema::table('registrations', function (Blueprint $table) {
-            $table->dropColumn('registration_id');
+
+            
         });
     }
 }
