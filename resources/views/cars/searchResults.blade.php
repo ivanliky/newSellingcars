@@ -1,5 +1,39 @@
 @extends('layouts.app')
 
+@section('content')
+
+@if ($search)
+
+<div class="container">
+
+<h2 class="mb-4">Found</h2>
+
+
+
+@foreach ($search as $found)
+
+
+
+        <div style="padding: 30px; border: 1px solid #000; margin-bottom: 15px;">
+
+            <img width = 270 src="{{asset('images/sellCars').'/'.$found->photo}}"/>
+
+        </div>
+
+@endforeach
+
+
+@else <h1>Not found anything</h1>
+
+
+
+
+@endif
+
+@endsection
+
+{{-- @extends('layouts.app')
+
 @if ($search)
 
 <ul style="list-style-type: none; font-size: 30px; padding-right:40px">
@@ -26,5 +60,5 @@
 @else <h1>Not found anything</h1>
 
 
-@endif
+@endif --}}
 

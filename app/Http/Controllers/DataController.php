@@ -29,6 +29,8 @@ class DataController extends Controller
         return view('cars.index', compact('brands', 'types', 'fuels', 'years', 'sellCars'));
     }
 
+
+
     public function show()
     {
         return view('cars.searchResults');
