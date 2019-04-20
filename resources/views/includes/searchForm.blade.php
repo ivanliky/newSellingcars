@@ -24,8 +24,6 @@
 
 <form action="/search" method="GET">
 
-    @csrf
-
  <div class="row m-0">
     <div class="form-group one column mr-5">
         <label for="brand">Select Brand:</label>
@@ -46,12 +44,19 @@
     </div>
 
     <div class="form-group one column">
-         <p class="m-0"><label for="price">Price to:</label></p>
 
-         <input type="number" name ='price' placeholder="&euro;">
+         <p class="m-0"><label for="price">Price from:</label></p>
+
+         <input style = 'margin-right: 15px; 'type="number" name ='price_from' placeholder="&euro;">
     </div>
 
-</div>
+    <div class="form-group one column">
+        <p class="m-0"><label for="price">Price to:</label></p>
+
+        <input type="number" name ='price_to' placeholder="&euro;">
+   </div>
+
+   </div>
 
     <div class="row m-0">
     <div class="form-group one column mr-5">

@@ -16,4 +16,10 @@ class Car extends Model
     {
         return $this->belongsTo('App\Type');
     }
+
+    public function registration()
+    {
+
+        return $this->hasMany('App\Registration');
+    }
 }

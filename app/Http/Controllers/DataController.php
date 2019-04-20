@@ -47,8 +47,6 @@ class DataController extends Controller
     public function getSearch(SearchForm $request)
     {
 
-        //return $request->all();
-
 
         $brand = Brand::findOrFail($request->brand);
 
@@ -62,9 +60,9 @@ class DataController extends Controller
 
         $type = Type::findOrFail($request->type);
 
-        //$price = $request->price;
+        $price_from = $request->price_from;
 
-        //return $price;
+        $price_to = $request->price_to;
 
 
         $search = DB::select(
@@ -83,9 +81,21 @@ class DataController extends Controller
 
             registrations.registered_to as registration ,
 
+            registrations.air_condition as air_condition ,
+
+            registrations.price as price ,
+
+            registrations.created_at as published ,
+
             colors.name as color ,
 
+            cars.power as power ,
+
             cars.name as model ,
+
+            cars.seats as seats ,
+
+            cars.doors as doors ,
 
             years.year as year ,
 
@@ -133,13 +143,17 @@ class DataController extends Controller
 
             AND
 
+            (registrations.price >= ? AND registrations.price <= ?)
+
+            AND
+
             fuels.name   = ?
 
             AND
 
             types.name   = ?",
 
-            [$brand->name, $model->name, $from->year, $to->year, $fuel->name, $type->name]
+            [$brand->name, $model->name, $from->year, $to->year, $price_from, $price_to,  $fuel->name, $type->name]
         );
 
 
