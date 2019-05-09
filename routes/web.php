@@ -22,4 +22,4 @@ Route::get('dropdownlist/brands/{id}', 'DataController@getModels');
 
 Route::get('/search', 'DataController@getSearch');
 
-Route::resource('cars', 'DataController');
+Route::resource('/', 'DataController');

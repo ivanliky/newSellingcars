@@ -8,6 +8,12 @@
 
 <h2 class="mb-4">Recomended</h2>
 
+<div>
+
+    {{ $sellCars->render() }}
+
+</div>
+
 <div class="row">
 
 @foreach ($sellCars as $sellCar)

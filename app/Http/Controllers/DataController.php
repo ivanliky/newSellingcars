@@ -24,7 +24,7 @@ class DataController extends Controller
 
         $years = Year::all();
 
-        $sellCars = Registration::all();
+        $sellCars = Registration::paginate(12);
 
         return view('cars.index', compact('brands', 'types', 'fuels', 'years', 'sellCars'));
     }
