@@ -16,11 +16,43 @@
 
 <div class="row">
 
-@foreach ($sellCars as $sellCar)
+@each('includes.boxes', $sellCars, 'module', 'includes.empty-module')
+
+{{-- @foreach ($sellCars as $sellCar)
 
 @include('includes.boxes')
 
-@endforeach
+@endforeach --}}
+
+</div>
+
+<div>
+
+    <h3>Popular models</h3>
+
+    <div class="modelBox">
+
+        <p>Audi A4</p>
+
+    </div>
+
+    <div class="modelBox">
+
+        <p>Audi A4</p>
+
+    </div>
+
+    <div class="modelBox">
+
+        <p>Audi A4</p>
+
+    </div>
+
+    <div class="modelBox">
+
+        <p>Audi A4</p>
+
+    </div>
 
 </div>
 
