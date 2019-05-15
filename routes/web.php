@@ -23,3 +23,5 @@ Route::get('dropdownlist/brands/{id}', 'DataController@getModels');
 Route::get('/search', 'DataController@getSearch');
 
 Route::resource('/', 'DataController');
+
+Route::resource('find', 'CarsController');

@@ -12,8 +12,6 @@
 
 @foreach ($search as $found)
 
-
-
  <div style="padding: 30px; border: 1px solid #000; margin-bottom: 15px; overflow:hidden;">
 
      <div class="imageS" style="float:left;"><img width = 270 src="{{asset('images/sellCars').'/'.$found->photo}}"/>
@@ -36,6 +34,8 @@
         <h2>{{ number_format($found->price, 3) }} &euro;</h2>
 
      </div>
+
+     <h2><a href="{{ route('find.show', $found->car_id) }}">More</a></h2>
 
  </div>
 

@@ -95,6 +95,8 @@ class DataController extends Controller
 
             cars.seats as seats ,
 
+            registrations.id as car_id ,
+
             cars.doors as doors ,
 
             years.year as year ,

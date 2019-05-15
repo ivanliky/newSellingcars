@@ -18,12 +18,6 @@
 
 @each('includes.boxes', $sellCars, 'module', 'includes.empty-module')
 
-{{-- @foreach ($sellCars as $sellCar)
-
-@include('includes.boxes')
-
-@endforeach --}}
-
 </div>
 
 <div>

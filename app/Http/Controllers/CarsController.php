@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 
+use App\Car;
+use App\Registration;
 use Illuminate\Http\Request;
+
 
 class CarsController extends Controller
 {
@@ -44,7 +47,11 @@ class CarsController extends Controller
      */
     public function show($id)
     {
-        //
+        $found = Registration::with(['owner', 'color', 'fuel', 'year'])->find($id);
+
+        $car = Car::with(['type', 'brand', 'brand.country'])->find($found->car_id);
+
+        return view('found.foundCar', compact('found', 'car'));
     }
 
     /**
