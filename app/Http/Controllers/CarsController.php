@@ -6,10 +6,12 @@ namespace App\Http\Controllers;
 use App\Car;
 use App\Registration;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class CarsController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *

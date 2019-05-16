@@ -9,11 +9,14 @@ use App\Year;
 use App\Brand;
 use App\Registration;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Http\Requests\SearchForm;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class DataController extends Controller
 {
+
+
     public function index()
     {
         $types = Type::all();

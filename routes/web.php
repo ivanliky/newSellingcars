@@ -1,7 +1,10 @@
 <?php
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Response;
+use App\Http\Controllers\Auth\LoginController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,23 +17,25 @@ use Illuminate\Support\Facades\Response;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', function () {
+        return redirect('data');
+    });
 });
 
 Route::get('dropdownlist/brands/{id}', 'DataController@getModels');
 
 Route::get('/search', 'DataController@getSearch');
 
-Route::resource('/data', 'DataController');
+Route::resource('/data', 'DataController')->middleware('auth');
 
-Route::resource('find', 'CarsController');
+Route::resource('find', 'CarsController')->middleware('auth');
 
-Route::resource('ask', 'OrderController');
+Route::resource('ask', 'OrderController')->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');;
 
 Auth::routes();
 
