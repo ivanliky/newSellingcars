@@ -14,14 +14,24 @@ use Illuminate\Support\Facades\Response;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('dropdownlist/brands/{id}', 'DataController@getModels');
 
 Route::get('/search', 'DataController@getSearch');
 
-Route::resource('/', 'DataController');
+Route::resource('/data', 'DataController');
 
 Route::resource('find', 'CarsController');
+
+Route::resource('ask', 'OrderController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
