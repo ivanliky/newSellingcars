@@ -22,7 +22,7 @@
 
 <div>
 
-    <h3>Popular models</h3>
+    <h3>Popular Brands</h3>
 
     <div class="modelBox">
 
