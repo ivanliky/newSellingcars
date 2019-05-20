@@ -25,6 +25,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('dropdownlist/brands/{id}', 'DataController@getModels');
 
+Route::get('admin/dropdownlist/brands/{id}', 'AdminController@getModels');
+
 Route::get('/search', 'DataController@getSearch');
 
 Route::resource('admin', 'AdminController')->middleware('auth');
@@ -39,7 +41,7 @@ Route::resource('ask', 'OrderController')->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');;
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 Auth::routes();
 

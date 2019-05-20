@@ -31,12 +31,14 @@ class AdminController extends Controller
     {
 
       $types = Type::all();
-      $brands = Brand::all();
+      $Allbrands = Brand::all();
+      $brands = Brand::pluck("name", "id");
+
       $countries = Country::all();
       $fuels = Fuel::all();
       $cars = Car::all();
 
-      return view('admin.create', compact('types', 'brands', 'countries', 'fuels', 'cars'));
+      return view('admin.create', compact('types', 'Allbrands', 'countries', 'fuels', 'cars', 'brands'));
     }
 
 
@@ -49,13 +51,6 @@ class AdminController extends Controller
     public function store(Request $request)
     {
 
-
-        // $country = Country::create(['name' => $request->country]);
-
-        // $country = Country::findOrFail($request->country);
-
-        // $brand = $country->brands()->create(['name' => $request->model, 'logo' => $request->logo]);
-
         $brand = Brand::findOrFail($request->brand);
 
         $type = Type::findOrFail($request->type);
@@ -66,6 +61,14 @@ class AdminController extends Controller
                                 'type_id' => $type->id ,
                                 'seats' => $request->seats]);
 
+    }
+
+    public function getModels($id)
+    {
+
+        $cars = Car::where("brand_id", $id)->pluck("name", "id");
+
+        return json_encode($cars);
     }
 
     /**

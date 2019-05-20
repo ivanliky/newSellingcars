@@ -1,18 +1,24 @@
 @extends('layouts.template')
 
+
 @section('content')
 
+@include('includes.dynamicDropdown')
+
+
 <h1>Insert new informations</h1>
+
+
 
     <form action="{{ route('admin.store') }}" method="POST">
 
          @csrf
 
-        <label for="brand">Brand:</label>
+        <label for="model">Brand:</label>
 
-        <select name="brand" id="brand">
+        <select name="model" id="model">
 
-            @foreach ($brands as $brand)
+            @foreach ($Allbrands as $brand)
 
             <option value="{{ $brand->id }}">{{ $brand->name }}</option>
 
@@ -41,7 +47,7 @@
 
             <input type="number" id="doors" name="doors"><br>
 
-        <label for="brand">Seats:</label>
+        <label for="brand">Seats:</label><br>
 
             <input type="number" id="seats" name="seats"><br><br>
 
@@ -55,29 +61,22 @@
 
             <h2>Insert registrations</h2>
 
-            <label for="brand">Brand:</label>
 
-            <select name="brand" id="brand">
+                    <label for="brand">Select Brand:</label>
+                    <select name="brand" class="form-control"  style="width:250px" >
+                        <option value="">--- Select Brand ---</option>
+                        @foreach ($brands as $key => $value)
+                        <option value="{{ $key }}">{{ $value }}</option>
+                        @endforeach
+                    </select>
 
-                @foreach ($brands as $brand)
 
-                <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                <label for="model">Model:</label>
 
-                @endforeach
-
-            </select><br>
-
-            <label for="brand">Model:</label>
-
-            <select name="type" id="type">
-
-                @foreach ($cars as $car)
-
-                  <option value="{{ $car->id }}">{{ $car->name }}</option>
-
-                @endforeach
-
-           </select><br>
+                    <label for="car">Select Model:</label>
+                    <select name="car" class="form-control"style="width:250px">
+                    <option>--Model--</option>
+                    </select>
 
 
         <label for="brand">Type:</label>
@@ -114,7 +113,7 @@
 
         <label for="brand">Power:</label>
 
-            <input type="text" id="power" name="power"><br>
+            <input type="number" id="power" name="power"><br>
 
         <label for="brand">Year of manufacture:</label>
 
