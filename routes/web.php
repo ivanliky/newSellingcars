@@ -27,6 +27,10 @@ Route::get('dropdownlist/brands/{id}', 'DataController@getModels');
 
 Route::get('/search', 'DataController@getSearch');
 
+Route::resource('admin', 'AdminController')->middleware('auth');
+
+Route::resource('registration', 'AdminRegistrationsController')->middleware('auth');
+
 Route::resource('/data', 'DataController')->middleware('auth');
 
 Route::resource('find', 'CarsController')->middleware('auth');

@@ -6,7 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Car extends Model
 {
-    public function brand()
+
+    protected $fillable = [
+
+        'name' , 'power' , 'doors' , 'type_id' , 'seats'
+
+    ];
+
+
+   public function brand()
     {
 
         return $this->belongsTo('App\Brand');
