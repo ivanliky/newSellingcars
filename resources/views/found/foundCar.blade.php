@@ -21,6 +21,7 @@
 </div>
 </div>
 <div class="col-sm-4">
+
     <p><b>Brand:</b> {{ $car->brand->name }} </p>
     <p><b>Model:</b> {{ $car->name }}</p>
     <p><b>Country of manufacture:</b> {{ $car->brand->country->name }} </p>
@@ -29,7 +30,7 @@
     <p><b>Type:</b> {{ $car->type->name }} </p>
     <p><b>Seats:</b> {{ $car->seats }}</p>
     <p><b>Price:</b> {{ $found->price }} EUR</p>
-    <p><b>Color:</b> {{ $found->color->name }} </p>
+    <p><b>Color:</b> {{ $found->color }} </p>
     <p><b>Fuel:</b> {{ $found->fuel->name }} </p>
     <p><b>Year of manufacture:</b> {{ $found->year->year }}. </p>
     <p><b>Kilometers:</b> {{ $found->kilometers }}</p>

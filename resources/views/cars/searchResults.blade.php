@@ -22,7 +22,7 @@
 
 
          <p>{{ $found->year }}. | {{ $found->kilometers }}km | {{ $found->fuel }} | 6000 cm3 , {{ $found->type }} , {{ $found->power }},</p>
-         <p>Automatski menjac , Air Condition: {{ $found->air_condition ? 'yes' : 'no' }} </p>
+         <p>Air Condition: {{ $found->air_condition ? 'yes' : 'no' }} </p>
          <p>{{ $found->seats }} seats , {{ $found->doors }} doors</p>
          <p>Selling start  date: {{ $found->published }} </p>
          <p>Location: Serbia</p>

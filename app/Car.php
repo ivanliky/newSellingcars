@@ -9,7 +9,7 @@ class Car extends Model
 
     protected $fillable = [
 
-        'name' , 'power' , 'doors' , 'type_id' , 'seats'
+        'name' , 'power' , 'doors' , 'brand_id' , 'type_id' , 'seats'
 
     ];
 

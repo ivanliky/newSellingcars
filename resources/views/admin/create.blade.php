@@ -62,21 +62,21 @@
             <h2>Insert registrations</h2>
 
 
-                    <label for="brand">Select Brand:</label>
-                    <select name="brand" class="form-control"  style="width:250px" >
-                        <option value="">--- Select Brand ---</option>
-                        @foreach ($brands as $key => $value)
-                        <option value="{{ $key }}">{{ $value }}</option>
-                        @endforeach
-                    </select>
+        <label for="brand">Select Brand:</label>
+        <select name="brand" class="form-control"  style="width:250px" >
+            <option value="">--- Select Brand ---</option>
+            @foreach ($brands as $key => $value)
+            <option value="{{ $key }}">{{ $value }}</option>
+            @endforeach
+        </select>
 
 
-                <label for="model">Model:</label>
+    <label for="model">Model:</label>
 
-                    <label for="car">Select Model:</label>
-                    <select name="car" class="form-control"style="width:250px">
-                    <option>--Model--</option>
-                    </select>
+        <label for="car">Select Model:</label>
+        <select name="car" class="form-control"style="width:250px">
+        <option>--Model--</option>
+        </select>
 
 
         <label for="brand">Type:</label>
@@ -101,7 +101,7 @@
 
         <label for="fuel">Fuel:</label>
 
-        <select name="fuel" id="fuel">
+        <select name="fuel_id" id="fuel">
 
             @foreach ($fuels as $fuel)
 
@@ -117,51 +117,65 @@
 
         <label for="brand">Year of manufacture:</label>
 
-            <input type="number" id="manufactured" name="manufactured"><br>
+        <select name="year_id" class="form-control" style="width:250px">
 
-        <label for="brand">Kullometers:</label>
+            @foreach ($years as $year)
+                  <option value="{{ $year->id }}">{{ $year->year }}</option>
+            @endforeach
+        </select><br>
 
-            <input type="number" id="killometers" name="killometers"><br>
+        <label for="kilometers">Kullometers:</label>
+
+            <input type="number" id="kilometers" name="kilometers"><br>
 
         <label for="photo">Photo:</label>
 
-            <input type="file" id="photo" name="photo"><br>
+            <input type="file" id="photo" name="car_photo"><br>
 
-        <label for="brand">Registered to:</label>
+        <label for="registered">Registered to:</label>
 
-            <input type="text" id="registered" name="registered"><br>
+        <select name="registered_to" class="form-control" style="width:250px">
+
+            @foreach ($years as $year)
+                  <option value="{{ $year->year }}">{{ $year->year }}</option>
+            @endforeach
+        </select><br>
 
         <label for="brand">First health:</label>
 
-            <input type="checkbox" id="health" name="health"><br>
+            <input type="checkbox" value='1' id="health" name="first_health"><br>
 
         <label for="brand">Air Condition:</label>
 
-            <input type="checkbox" id="air" name="air"><br>
+            <input type="checkbox" value='1' id="air" name="air_condition"><br>
 
         <label for="brand">Triangle:</label>
 
-            <input type="checkbox" id="triangle" name="triangle"><br>
+        <input type="checkbox" value="1" id="triangle" name="triangle"><br>
 
         <label for="brand">Extra wheels:</label>
 
-            <input type="number" id="e_wheels" name="e_wheels"><br>
+            <input type="number" id="e_wheels" name="wheels_number"><br>
 
         <label for="brand">Owner First name:</label>
 
-            <input type="text" id="o_fname" name="o_fname"><br>
+            <input type="text" id="o_fname" name="first_name"><br>
 
         <label for="brand">Owner Last name:</label>
 
-            <input type="text" id="o_lname" name="o_lname"><br>
+            <input type="text" id="o_lname" name="last_name"><br>
 
         <label for="brand">Mobile phone:</label>
 
-            <input type="number" id="m_phone" name="m_phone"><br>
+            <input type="number" id="m_phone" name="mobile_phone"><br>
 
         <label for="brand">Home phone:</label>
 
-            <input type="number" id="h_phone" name="h_phone"><br>
+            <input type="number" id="h_phone" name="home_phone"><br>
+
+        <label for="brand">Address:</label>
+
+            <input type="text" id="address" name="address"><br>
 
         <label for="brand">Email:</label>
 

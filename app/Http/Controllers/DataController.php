@@ -90,7 +90,7 @@ class DataController extends Controller
 
             registrations.created_at as published ,
 
-            colors.name as color ,
+            registrations.color as color ,
 
             cars.power as power ,
 
@@ -126,9 +126,6 @@ class DataController extends Controller
 
             years on years.id = registrations.year_id
 
-            join
-
-            colors on colors.id = registrations.color_id
 
             join
 

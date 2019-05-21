@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Car;
 use App\Fuel;
 use App\Type;
+use App\Year;
 use App\Brand;
 use App\Country;
 use Illuminate\Http\Request;
@@ -37,8 +38,9 @@ class AdminController extends Controller
       $countries = Country::all();
       $fuels = Fuel::all();
       $cars = Car::all();
+      $years = Year::all();
 
-      return view('admin.create', compact('types', 'Allbrands', 'countries', 'fuels', 'cars', 'brands'));
+      return view('admin.create', compact('types', 'Allbrands', 'countries', 'fuels', 'cars', 'brands','years'));
     }
 
 

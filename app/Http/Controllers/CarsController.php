@@ -49,7 +49,7 @@ class CarsController extends Controller
      */
     public function show($id)
     {
-        $found = Registration::with(['owner', 'color', 'fuel', 'year'])->find($id);
+        $found = Registration::with(['owner',  'fuel', 'year'])->find($id);
 
         $car = Car::with(['type', 'brand', 'brand.country'])->find($found->car_id);
 
